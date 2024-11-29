@@ -8,6 +8,7 @@ import donorRoutes from './routes/donor.js';
 import hospitalRoutes from './routes/hospital.js';
 import clinicRoutes from './routes/clinic.js';
 import emergencyRoutes from './routes/emergency.js';
+import { errorHandler } from './middleware/errorHandler.js';
 
 dotenv.config();
 const app = express();
@@ -22,6 +23,9 @@ app.use('/api/donor', donorRoutes);
 app.use('/api/hospital', hospitalRoutes);
 app.use('/api/clinic', clinicRoutes);
 app.use('/api/emergency', emergencyRoutes);
+
+// Add this after all route declarations but before the database connection
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 

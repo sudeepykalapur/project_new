@@ -3,7 +3,6 @@ import { auth } from '../middleware/auth.js';
 
 const router = express.Router();
 
-// Add your hospital routes here
-// Example: router.get('/inventory', auth, HospitalController.getInventory);
+// TODO: Add hospital routes here
 
 export default router;

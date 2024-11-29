@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const donationCampSchema = new mongoose.Schema({
     title: {
@@ -30,4 +30,4 @@ const donationCampSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 donationCampSchema.index({ location: '2dsphere' });
-module.exports = mongoose.model('DonationCamp', donationCampSchema); 
+export default mongoose.model('DonationCamp', donationCampSchema); 
