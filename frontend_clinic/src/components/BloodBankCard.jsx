@@ -18,6 +18,7 @@ function BloodBankCard({ bank, index }) {
           <div key={type} className="flex justify-between">
             <span>{type}</span>
             <span className="font-semibold">{units} units</span>
+            <div>{units}</div>
           </div>
         ))}
       </div>

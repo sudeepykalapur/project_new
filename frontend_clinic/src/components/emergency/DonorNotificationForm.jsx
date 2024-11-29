@@ -3,8 +3,50 @@ import { motion } from 'framer-motion'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
+import { useState } from 'react';
+import { emergencyService } from '../../services/emergencyService';
+import { useToast } from '../ui/use-toast';
 
 function DonorNotificationForm() {
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    bloodType: '',
+    units: '',
+    hospital: '',
+    address: '',
+    urgency: '',
+    message: ''
+  });
+  const { toast } = useToast();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await emergencyService.notifyDonors(formData);
+      toast({
+        title: 'Success',
+        description: 'Emergency notification sent to nearby donors'
+      });
+      setFormData({
+        bloodType: '',
+        units: '',
+        hospital: '',
+        address: '',
+        urgency: '',
+        message: ''
+      });
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: error.message,
+        variant: 'destructive'
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -12,7 +54,7 @@ function DonorNotificationForm() {
       className="bg-white p-6 rounded-lg shadow-md"
     >
       <h3 className="text-xl font-semibold mb-4">Notify Nearby Donors</h3>
-      <form className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="bloodType">Required Blood Type</Label>
           <Select>
@@ -83,13 +125,13 @@ function DonorNotificationForm() {
           />
         </div>
 
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="w-full bg-red-600 text-white py-3 rounded-md font-semibold hover:bg-red-700 transition-colors"
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 disabled:opacity-50"
         >
-          Notify Donors
-        </motion.button>
+          {loading ? 'Sending...' : 'Send Emergency Request'}
+        </button>
       </form>
     </motion.div>
   )

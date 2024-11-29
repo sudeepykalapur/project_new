@@ -19,7 +19,7 @@ export const Sidebar = () => {
     <motion.aside
       initial={{ x: -250 }}
       animate={{ x: 0 }}
-      className={`w-64 bg-[${colors.sidebar}] text-white`}
+      className={`w-64 bg-[${colors.sidebar}] text-white bg-slate-900`}
     >
       <div className="p-4">
         <h1 className="text-xl font-bold text-white mb-8">Blood Bank System</h1>
@@ -31,11 +31,10 @@ export const Sidebar = () => {
             >
               <Link
                 to={item.path}
-                className={`flex items-center p-3 mb-2 rounded-lg transition-colors ${
-                  location.pathname === item.path
-                    ? `bg-[${colors.primary}] text-white`
-                    : 'text-gray-300 hover:bg-gray-700'
-                }`}
+                className={`flex items-center p-3 mb-2 rounded-lg transition-colors ${location.pathname === item.path
+                  ? `bg-[${colors.primary}] text-white`
+                  : 'text-gray-300 hover:bg-gray-700'
+                  }`}
               >
                 <item.icon className="w-5 h-5 mr-3" />
                 {item.label}

@@ -23,7 +23,7 @@ const StockManagement = () => {
       <motion.h1
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="text-3xl font-bold"
+        className="text-3xl font-bold text-white"
       >
         Blood Stock Management
       </motion.h1>
