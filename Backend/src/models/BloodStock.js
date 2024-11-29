@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const bloodStockSchema = new mongoose.Schema({
     bloodType: {
@@ -21,4 +21,4 @@ const bloodStockSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('BloodStock', bloodStockSchema); 
+export default mongoose.model('BloodStock', bloodStockSchema); 
