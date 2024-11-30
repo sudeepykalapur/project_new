@@ -33,6 +33,9 @@ export function Header() {
             <Link to="/">
               <Button variant={isActive('/') ? 'default' : 'ghost'}>Home</Button>
             </Link>
+            <Link to="/camps">
+              <Button variant={isActive('/camps') ? 'default' : 'ghost'}>Camps</Button>
+            </Link>
             <Link to="/profile">
               <Button variant={isActive('/profile') ? 'default' : 'ghost'}>Profile</Button>
             </Link>
@@ -70,6 +73,9 @@ export function Header() {
             <div className="flex flex-col space-y-2">
               <Link to="/">
                 <Button variant="ghost" className="w-full text-left">Home</Button>
+              </Link>
+              <Link to="/camps">
+                <Button variant="ghost" className="w-full text-left">Camps</Button>
               </Link>
               <Link to="/profile">
                 <Button variant="ghost" className="w-full text-left">Profile</Button>

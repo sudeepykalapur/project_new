@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { HomePage } from '@/components/home/HomePage'
 import { ProfileLayout } from '@/components/profile/ProfileLayout'
 import { DonorForm } from '@/components/forms/DonorForm'
+import { CampsPage } from '@/components/camps/CampsPage'
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/profile" element={<ProfileLayout />} />
-            <Route path="/donate" element={<DonorForm onClose={() => {}} />} />
+            <Route path="/donate" element={<DonorForm onClose={() => { }} />} />
+            <Route path="/camps" element={<CampsPage />} />
           </Routes>
         </main>
         <Footer />
