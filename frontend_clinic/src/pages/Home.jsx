@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-
+import Footer from '../components/Footer'
 function Home() {
   const navigate = useNavigate()
 
@@ -69,6 +69,7 @@ function Home() {
           ))}
         </div>
       </div>
+      <Footer></Footer>
     </div>
   )
 }

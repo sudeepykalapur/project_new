@@ -5,7 +5,7 @@ import { Input } from '../ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 import { useState } from 'react';
 import { emergencyService } from '../../services/emergencyService';
-import { useToast } from '../ui/use-toast';
+// import { useToast } from '../ui/use-toast';
 
 function DonorNotificationForm() {
   const [loading, setLoading] = useState(false);
@@ -17,17 +17,17 @@ function DonorNotificationForm() {
     urgency: '',
     message: ''
   });
-  const { toast } = useToast();
+  // const { toast } = useToast();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       await emergencyService.notifyDonors(formData);
-      toast({
-        title: 'Success',
-        description: 'Emergency notification sent to nearby donors'
-      });
+      // toast({
+      //   title: 'Success',
+      //   description: 'Emergency notification sent to nearby donors'
+      // });
       setFormData({
         bloodType: '',
         units: '',
